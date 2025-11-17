@@ -107,6 +107,8 @@ body {
     font-family: "DM Sans", Arial, Helvetica, sans-serif !important;
     font-weight: 500;
     font-size: 18px !important;
+    background-color: var(--color-main-bg);
+
 }
 
 h1,
@@ -150,6 +152,12 @@ h3 {
     }
 }
 
+.dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    font-size: 0.9rem;
+}
+
 input {
     background-color: var(--color-panel-bg-dark);
     border: none;
@@ -190,16 +198,71 @@ input {
     margin: 0 auto;
 }
 
+
+.weather-report-box {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+
 .current-weather-card {
     background-color: var(--color-panel-bg-dark);
-    border-radius:1rem;
+    border-radius: 1rem;
 }
 
 .current-weather-card .title {
     color: var(--color-text-med-light);
 }
 
-.current-weather-card  .readings{
+.current-weather-card .readings {
     color: var(--color-text-light);
 }
 
+.panel-dark {
+    background-color: var(--color-panel-bg-dark);
+    border-radius: 0.5rem;
+}
+
+
+.right-panel-title {
+    color: var(--color-text-light);
+}
+
+.dropdown-toggle-hourly {
+    background-color: var(--color-panel-bg-light) !important;
+    border-radius: 0.25rem;
+    padding: 0.3rem 0.6rem;
+}
+
+.hourly-card {
+    color: var(--color-text-light);
+    background-color: var(--color-panel-bg-med);
+    border-radius: 0.5rem;
+}
+
+.daily-card-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.daily-card {
+    background-color: var(--color-panel-bg-light);
+    border-radius: 0.5rem;
+    color: var(--color-text-light);
+}
+
+
+@media (max-width:575px) {
+    .weather-report-box {
+        width: 380px;
+        margin: 0 auto;
+    }
+
+    .daily-card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+}

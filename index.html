@@ -8,7 +8,7 @@
   <title>Weather app | Home</title>
   <!-- bootstrap linking here -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
   <!-- custom style linking here -->
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -19,10 +19,6 @@
 
     .attribution a {
       color: hsl(228, 45%, 44%);
-    }
-
-    body {
-      background-color: var(--color-main-bg);
     }
   </style>
 </head>
@@ -35,7 +31,7 @@
       <a class="navbar-brand" href="#">
         <img class="img-fluid" src="assets/images/logo.svg" alt="weather-app-logo">
       </a>
-      <span class="nav-item dropdown">
+      <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle d-flex" href="#" id="navbarDropdownMenuLink" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
           <img class="img-fluid" src="./assets/images/icon-units.svg" alt="">
@@ -64,7 +60,7 @@
             <hr class="dropdown-divider text-light">
           </li>
         </ul>
-      </span>
+      </div>
     </div>
   </nav>
   <!-- navbar ends here -->
@@ -85,43 +81,191 @@
   </div>
   <!-- serach area ends here -->
   <!-- main-content-area -->
-  <div class="container my-5">
+  <div class="container my-5 weather-report-box">
     <div class="row">
       <!-- letf side content here -->
-      <div class="col-md-8">
+      <div class="col-md-8 col-12">
         <img class="img-fluid w-100" src="assets/images/bg-today-large.svg" alt="weather-background-image">
+        <!-- <div class="current-temp">
+          <div class="d-flex justify-content-between">
+            <div class="current-data">
+              <h3>Berlin,Germany</h3>
+              <h6>Tuesday Aug 5,2025</h6>
+            </div>
+            <div class="temp">
+              <h1>20</h1>
+            </div>
+          </div>
+        </div> -->
         <div class="row g-2 mt-4">
-          <div class="col-6 col-lg-3">
+          <div class="col-lg-3 col-6">
             <div class="current-weather-card p-3">
               <h6 class="title mb-3">Feels like</h6>
               <span class="readings m-0 fs-5">18</span>
             </div>
-          </div>  
-           <div class="col-6 col-lg-3">
+          </div>
+          <div class="col-6 col-lg-3">
             <div class="current-weather-card p-3">
               <h6 class="title mb-3">Humidity</h6>
               <span class="readings m-0 fs-5">46%</span>
             </div>
           </div>
-           <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3">
             <div class="current-weather-card p-3">
               <h6 class="title mb-3">Wind</h6>
               <span class="readings m-0 fs-5">14 Km/h</spaclass=>
             </div>
           </div>
-           <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3">
             <div class="current-weather-card p-3">
               <h6 class="title mb-3">Precipitation</h6>
               <span class="readings m-0 fs-5">0 mm</span>
             </div>
           </div>
         </div>
+        <div class="row mt-5">
+          <h6 class="m-0 right-panel-title">Daily forecast</h6>
+          <div class="daily-card-container mt-3">
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+            <div class="daily-card text-center px-2 pt-2">
+              <h6 class="m-0">Tue</h6>
+              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <div class="d-flex align-items-center justify-content-between">
+                <sub class="mt-0 mt-lg-3">20</sub>
+                <sub class="mt-0 mt-lg-3">14</sub>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- right side content -->
-      <div class="col-md-4"></div>
+      <div class="col-md-4 col-12">
+        <div class="container px-3 py-2 panel-dark mt-md-0 mt-5">
+          <!-- title and dropdown here -->
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <h6 class="m-0 right-panel-title">Hourly forecast</h6>
+
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex dropdown-toggle-hourly" href="#" id="navbarDropdownMenuLink"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mx-2" style="color: var(--color-text-light);">Tuesday</span>
+                <img class="img-fluid" src="./assets/images/icon-dropdown.svg" alt="">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item py-2" href="">Monday</a></li>
+                <li><a class="dropdown-item py-2" href="">Tuesday</a></li>
+                <li><a class="dropdown-item py-2" href="">Wednesday</a></li>
+                <li><a class="dropdown-item py-2" href="">Thursday</a></li>
+                <li><a class="dropdown-item py-2" href="">Friday</a></li>
+                <li><a class="dropdown-item py-2" href="">Saturday</a></li>
+                <li><a class="dropdown-item py-2" href="">Sunday</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Hourly weather details here -->
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+          <div class="hourly-card my-3 p-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">3 PM</p>
+              <p class="m-0">20</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- main-content-ends-area -->
+
+  <!-- bootstrap js here -->
+  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
