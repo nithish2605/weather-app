@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo.svg">
+  <title>Weather app | Home</title>
+  <!-- bootstrap linking here -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  <!-- custom style linking here -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      background-color: var(--color-main-bg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar starts here -->
+  <!-- As a link -->
+  <nav class="navbar text-light mt-4 justify-content-between">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand" href="#">
+        <img class="img-fluid" src="assets/images/logo.svg" alt="weather-app-logo">
+      </a>
+      <span class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex" href="#" id="navbarDropdownMenuLink" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="img-fluid" src="./assets/images/icon-units.svg" alt="">
+          <span class="mx-2" style="color: var(--color-text-light);">Units</span>
+          <img class="img-fluid" src="./assets/images/icon-dropdown.svg" alt="">
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><a class="dropdown-item" href="#">Switch to imperial</a></li>
+          <li><span class="dropdown-item disabled" style="color: var(--color-text-med-light);"
+              href="#">Temperature</span></li>
+          <li><a class="dropdown-item" href="#">Celsius(C)</a></li>
+          <li><a class="dropdown-item" href="#">Fahrenheit</a></li>
+          <li>
+            <hr class="dropdown-divider text-light">
+          </li>
+          <li><a class="dropdown-item disabled" style="color: var(--color-text-med-light);" href="#">Wind Speed</a></li>
+          <li><a class="dropdown-item" href="#">Km/h</a></li>
+          <li><a class="dropdown-item" href="#">mph</a></li>
+          <li>
+            <hr class="dropdown-divider text-light">
+          </li>
+          <li><a class="dropdown-item disabled" style="color: var(--color-text-med-light);" href="#">Precipitation</a>
+          </li>
+          <li><a class="dropdown-item" href="#">Millimeters(mm)</a></li>
+          <li>
+            <hr class="dropdown-divider text-light">
+          </li>
+        </ul>
+      </span>
+    </div>
+  </nav>
+  <!-- navbar ends here -->
+  <!-- serach area starts here -->
+  <div class="container search-area text-center mt-4">
+    <h1 class="fw-bold" style="color: var(--color-text-light);">How's the sky looking today?</h1>
+    <div class="search-group-wrapper mt-3 mt-sm-4 mt-md-5">
+      <div class="row">
+        <div class="col-12 col-md-9 position-relative">
+          <input type="text" placeholder="Search for a place..." class="w-100 mb-3 mb-md-0 px-5">
+          <img class="search-icon position-absolute" src="assets/images/icon-search.svg" alt="search-icon">
+        </div>
+        <div class="col-12 col-md-3">
+          <button type="submit" class="btn-srch p-2 px-3 w-100">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- serach area ends here -->
+  <!-- main-content-area -->
+  <div class="container my-5">
+    <div class="row">
+      <!-- letf side content here -->
+      <div class="col-md-8">
+        <img class="img-fluid w-100" src="assets/images/bg-today-large.svg" alt="weather-background-image">
+        <div class="row g-2 mt-4">
+          <div class="col-6 col-lg-3">
+            <div class="current-weather-card p-3">
+              <h6 class="title mb-3">Feels like</h6>
+              <span class="readings m-0 fs-5">18</span>
+            </div>
+          </div>  
+           <div class="col-6 col-lg-3">
+            <div class="current-weather-card p-3">
+              <h6 class="title mb-3">Humidity</h6>
+              <span class="readings m-0 fs-5">46%</span>
+            </div>
+          </div>
+           <div class="col-6 col-lg-3">
+            <div class="current-weather-card p-3">
+              <h6 class="title mb-3">Wind</h6>
+              <span class="readings m-0 fs-5">14 Km/h</spaclass=>
+            </div>
+          </div>
+           <div class="col-6 col-lg-3">
+            <div class="current-weather-card p-3">
+              <h6 class="title mb-3">Precipitation</h6>
+              <span class="readings m-0 fs-5">0 mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- right side content -->
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+  <!-- main-content-ends-area -->
+</body>
+
+</html>
