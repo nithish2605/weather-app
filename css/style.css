@@ -253,6 +253,13 @@ input {
     color: var(--color-text-light);
 }
 
+.no-result-section{
+    display: none;
+}
+
+.no-result-section.active{
+    display: block;
+}
 
 @media (max-width:575px) {
     .weather-report-box {
