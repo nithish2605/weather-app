@@ -42,14 +42,14 @@
           <li><a class="dropdown-item" href="#">Switch to imperial</a></li>
           <li><span class="dropdown-item disabled" style="color: var(--color-text-med-light);"
               href="#">Temperature</span></li>
-          <li><a class="dropdown-item" href="#">Celsius(C)</a></li>
-          <li><a class="dropdown-item" href="#">Fahrenheit</a></li>
+          <li><a class="dropdown-item unit-temp"  data-temp="celsius"   href="#">Celsius(C)</a></li>
+          <li><a class="dropdown-item unit-temp"  data-temp="fahrenheit" href="#">Fahrenheit</a></li>
           <li>
             <hr class="dropdown-divider text-light">
           </li>
           <li><a class="dropdown-item disabled" style="color: var(--color-text-med-light);" href="#">Wind Speed</a></li>
-          <li><a class="dropdown-item" href="#">Km/h</a></li>
-          <li><a class="dropdown-item" href="#">mph</a></li>
+          <li><a class="dropdown-item unit-wind" data-wind="Km/h" href="#">Km/h</a></li>
+          <li><a class="dropdown-item unit-wind" data-wind="mph" href="#">mph</a></li>
           <li>
             <hr class="dropdown-divider text-light">
           </li>
@@ -81,24 +81,25 @@
   </div>
   <!-- serach area ends here -->
   <!-- main-content-area -->
-   <div class="container no-result-section">
-     <h5 class="text-center mt-5" style="color: var(--color-text-light);">No search results found!</h5>
-   </div>
+  <div class="container no-result-section">
+    <h5 class="text-center mt-5" style="color: var(--color-text-light);">No search results found!</h5>
+  </div>
   <div class="container my-5 weather-report-box">
     <div class="row">
       <!-- letf side content here -->
       <div class="col-md-8 col-12">
         <div class="weather-hero position-relative">
           <img class="img-fluid w-100" src="assets/images/bg-today-large.svg" alt="weather-background-image">
-
           <div
             class="d-flex justify-content-between align-items-center position-absolute w-100 top-50 translate-middle-y px-3">
             <div class="current-data">
               <h4 class="fw-bold city-coun">Berlin,Germany</h4>
               <h6 class="cur_date">Tuesday Aug 5,2025</h6>
             </div>
-            <div class="temp">
-              <h1 class="fw-bold display-3 cur-temp">20</h1>
+            <div class="temp d-flex align-items-center justify-content-end gap-2">
+              <img class="img-fluid h-25 w-25 cur-weather-img" src="assets/images/icon-overcast.webp"
+                alt="weather-image">
+              <h1 class="fw-bold display-3 cur-temp m-0">20</h1>
             </div>
           </div>
 
@@ -134,7 +135,7 @@
           <div class="daily-card-container mt-3">
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -142,7 +143,7 @@
             </div>
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -150,7 +151,7 @@
             </div>
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -158,7 +159,7 @@
             </div>
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -166,7 +167,7 @@
             </div>
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -174,15 +175,15 @@
             </div>
             <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
               </div>
             </div>
-            <div class="daily-card text-center px-2 pt-2">  
+            <div class="daily-card text-center px-2 pt-2">
               <h6 class="m-0 daily-day">Tue</h6>
-              <img class="img-fluid  h-50" src="assets/images/icon-drizzle.webp" alt="">
+              <img class="img-fluid  h-50 daily-weather-icon" src="assets/images/icon-drizzle.webp" alt="">
               <div class="d-flex align-items-center justify-content-between">
                 <sub class="mt-0 mt-lg-3 max-temp">20</sub>
                 <sub class="mt-0 mt-lg-3 min-temp">14</sub>
@@ -199,19 +200,19 @@
             <h6 class="m-0 right-panel-title">Hourly forecast</h6>
 
             <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle d-flex dropdown-toggle-hourly" href="#" id="navbarDropdownMenuLink"
+              <a class="nav-link dropdown-toggle d-flex dropdown-toggle-hourly" href="#" id="navbarDropdownMenuDays"
                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="mx-2" style="color: var(--color-text-light);">Tuesday</span>
                 <img class="img-fluid" src="./assets/images/icon-dropdown.svg" alt="">
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item py-2" href="">Monday</a></li>
-                <li><a class="dropdown-item py-2" href="">Tuesday</a></li>
-                <li><a class="dropdown-item py-2" href="">Wednesday</a></li>
-                <li><a class="dropdown-item py-2" href="">Thursday</a></li>
-                <li><a class="dropdown-item py-2" href="">Friday</a></li>
-                <li><a class="dropdown-item py-2" href="">Saturday</a></li>
-                <li><a class="dropdown-item py-2" href="">Sunday</a></li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuDays">
+                <li><a class="dropdown-item py-2 day-list" data-day="" href="" >Monday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Tuesday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Wednesday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Thursday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Friday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Saturday</a></li>
+                <li><a class="dropdown-item py-2 day-list" href="">Sunday</a></li>
               </ul>
             </div>
           </div>
@@ -219,53 +220,84 @@
 
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
 
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
           <div class="hourly-card my-3 p-2">
             <div class="d-flex justify-content-between align-items-center">
-              <p class="m-0 hour-time">3 PM</p>
+              <div class="d-flex align-items-center">
+                <img src="./assets/images/icon-drizzle.webp" alt="weather icon" class="hour-icon me-2" />
+                <p class="m-0 hour-time">3 PM</p>
+              </div>
               <p class="m-0 hour-temp">20</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>

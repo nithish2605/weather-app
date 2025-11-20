@@ -14,6 +14,13 @@ let max_temp = document.querySelectorAll('.max-temp');
 let min_temp = document.querySelectorAll('.min-temp');
 let no_result_section = document.querySelector('.no-result-section');
 let weather_box = document.querySelector('.weather-report-box');
+let cur_weather_img = document.querySelector('.cur-weather-img');
+let daily_weather_img = document.querySelectorAll('.daily-weather-icon');
+let hourly_weather_img = document.querySelectorAll('.hour-icon');
+let units_temp = document.querySelectorAll('.unit-temp');
+let units_wind = document.querySelectorAll('.unit-wind');
+let selectedTempUnit = "celsius";
+let selectedWindUnit = "kmh";
 
 document.querySelector('.city-input').addEventListener('input', function () {
     input_city = this.value;
@@ -27,9 +34,63 @@ document.querySelector('.city-input').addEventListener('keydown', (e) => {
 })
 
 //search when  clicked on srch btn
-btn_srch.addEventListener('click', () => {
+btn_srch.addEventListener('click', () => { 
     getWeatherData(input_city);
 });
+
+units_temp.forEach(unit => {
+    unit.addEventListener('click',()=>{
+    selectedTempUnit = unit.dataset.temp;
+      getWeatherData(input_city);
+    })
+});
+
+units_wind.forEach(unit => {
+    unit.addEventListener('click',()=>{
+    units_wind = unit.dataset.wind;
+    getWeatherData(input_city);
+    })
+});
+
+const weatherCodeMeaning = {
+    0:  "icon-sunny",
+    1:  "icon-sunny",
+    2:  "icon-partly-cloudy",
+    3:  "icon-overcast",
+
+    45: "icon-fog",
+    48: "icon-fog",
+
+    51: "icon-drizzle",
+    53: "icon-drizzle",
+    55: "icon-drizzle",
+
+    56: "icon-drizzle",
+    57: "icon-drizzle",
+
+    61: "icon-rain",
+    63: "icon-rain",
+    65: "icon-rain",
+
+    66: "icon-rain",
+    67: "icon-rain",
+
+    71: "icon-snow",
+    73: "icon-snow",
+    75: "icon-snow",
+    77: "icon-snow",
+
+    80: "icon-rain",
+    81: "icon-rain",
+    82: "icon-rain",
+
+    85: "icon-snow",
+    86: "icon-snow",
+
+    95: "icon-storm",
+    96: "icon-storm",
+    99: "icon-storm"
+};
 
 
 async function getWeatherData(cityName) {
@@ -49,7 +110,13 @@ async function getWeatherData(cityName) {
             weather_box.style.display = 'block';
             const { latitude, longitude, country, name } = geoData.results[0];
             city_name.innerHTML = name + "," + country;
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&hourly=temperature_2m&current=apparent_temperature,temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&timezone=auto`;
+    
+            // const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&hourly=temperature_2m,weather_code&current=apparent_temperature,temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,weather_code&
+            // timezone=auto`;
+
+
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&hourly=temperature_2m,weather_code&current=apparent_temperature,temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,weather_code&temperature_unit=${selectedTempUnit}&wind_speed_unit=${selectedWindUnit}&timezone=auto`;
+
 
             const response = await fetch(url);
             const data = await response.json();
@@ -67,8 +134,9 @@ async function getWeatherData(cityName) {
 
 function getCurrentData(data) {
     console.log("Current city weather report....");
+
     console.log("Temperature", data.current.temperature_2m, data.current_units.temperature_2m);
-    cur_temp.innerHTML = Math.round(data.current.temperature_2m);
+    cur_temp.innerHTML = Math.round(data.current.temperature_2m) ;
     let curr_date = data.current.time;
     const date = new Date(curr_date);
     const options = {
@@ -83,6 +151,8 @@ function getCurrentData(data) {
     cur_humidity.innerHTML = data.current.relative_humidity_2m + " " + data.current_units.relative_humidity_2m;//humidity
     cur_wind.innerHTML = data.current.wind_speed_10m + " " + data.current_units.wind_speed_10m;//curwind
     cur_precipitation.innerHTML = data.current.precipitation + " " + data.current_units.precipitation;//precipitation
+    let weatherCode = data.current.weather_code;
+    cur_weather_img.src = './assets/images/'+ weatherCodeMeaning[weatherCode] + '.webp';
 }
 
 function getHourlyData(data) {
@@ -100,7 +170,9 @@ function getHourlyData(data) {
             hour12: true
         });
         hour_val[count].innerHTML = formattedTime;
-        hour_temp[count].innerHTML = temp;
+        hour_temp[count].innerHTML = temp;  
+        let weatherCode = data.hourly.weather_code[i];
+        hourly_weather_img[count].src = './assets/images/'+ weatherCodeMeaning[weatherCode] + '.webp'; 
         count++;
     }
 }
@@ -117,8 +189,10 @@ function getDailyData(data) {
         daily_dayName[dailycount].innerHTML = fromatedDay;
         max_temp[dailycount].innerHTML = Math.round(data.daily.temperature_2m_max[i]);
         min_temp[dailycount].innerHTML = Math.round(data.daily.temperature_2m_min[i]);
+        let weatherCode = data.daily.weather_code[dailycount];
+        daily_weather_img[dailycount].src = './assets/images/'+ weatherCodeMeaning[weatherCode] + '.webp'; 
         dailycount++;
         console.log(fromatedDay, "max-temp", data.daily.temperature_2m_max[i], "min-temp",
-            data.daily.temperature_2m_min[i]);
+        data.daily.temperature_2m_min[i]);
     }
 }

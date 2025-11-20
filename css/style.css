@@ -205,7 +205,6 @@ input {
 }
 
 
-
 .current-weather-card {
     background-color: var(--color-panel-bg-dark);
     border-radius: 1rem;
@@ -239,6 +238,7 @@ input {
     color: var(--color-text-light);
     background-color: var(--color-panel-bg-med);
     border-radius: 0.5rem;
+    height: 2.7rem;
 }
 
 .daily-card-container {
@@ -259,6 +259,11 @@ input {
 
 .no-result-section.active{
     display: block;
+}
+
+.hour-icon {
+    height: 2rem;
+    width: auto;
 }
 
 @media (max-width:575px) {
