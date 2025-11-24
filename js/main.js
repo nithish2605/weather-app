@@ -21,6 +21,7 @@ let units_temp = document.querySelectorAll('.unit-temp');
 let units_wind = document.querySelectorAll('.unit-wind');
 let selectedTempUnit = "celsius";
 let selectedWindUnit = "kmh";
+let loader = document.querySelector('.Loading-section');
 
 document.querySelector('.city-input').addEventListener('input', function () {
     input_city = this.value;
@@ -47,7 +48,7 @@ units_temp.forEach(unit => {
 
 units_wind.forEach(unit => {
     unit.addEventListener('click',()=>{
-    units_wind = unit.dataset.wind;
+    selectedWindUnit = unit.dataset.wind;
     getWeatherData(input_city);
     })
 });
@@ -95,6 +96,8 @@ const weatherCodeMeaning = {
 
 async function getWeatherData(cityName) {
     try {
+        loader.style.display = 'block';
+        weather_box.style.display = 'none';
         const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`;
         const geoRes = await fetch(geoUrl);
         const geoData = await geoRes.json();
@@ -107,16 +110,10 @@ async function getWeatherData(cityName) {
         }
         else {
             no_result_section.classList.remove('active');
-            weather_box.style.display = 'block';
             const { latitude, longitude, country, name } = geoData.results[0];
             city_name.innerHTML = name + "," + country;
     
-            // const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&hourly=temperature_2m,weather_code&current=apparent_temperature,temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,weather_code&
-            // timezone=auto`;
-
-
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&hourly=temperature_2m,weather_code&current=apparent_temperature,temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,weather_code&temperature_unit=${selectedTempUnit}&wind_speed_unit=${selectedWindUnit}&timezone=auto`;
-
 
             const response = await fetch(url);
             const data = await response.json();
@@ -125,10 +122,16 @@ async function getWeatherData(cityName) {
             getCurrentData(data);
             getHourlyData(data);
             getDailyData(data);
+            loader.style.display = 'none';
+            weather_box.style.display = 'block';
+
         }
     }
     catch (error) {
         console.log("something went wrong", error);
+    }
+    finally{
+            loader.style.display = 'none';
     }
 }
 

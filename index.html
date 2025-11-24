@@ -36,10 +36,10 @@
           data-bs-toggle="dropdown" aria-expanded="false">
           <img class="img-fluid" src="./assets/images/icon-units.svg" alt="">
           <span class="mx-2" style="color: var(--color-text-light);">Units</span>
-          <img class="img-fluid" src="./assets/images/icon-dropdown.svg" alt="">
+          <img class="img-fluid" src="./assets/images/icon-dropdown.svg" alt="dropdown-icon">
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Switch to imperial</a></li>
+          <!-- <li><a class="dropdown-item" href="#">Switch to imperial</a></li> -->
           <li><span class="dropdown-item disabled" style="color: var(--color-text-med-light);"
               href="#">Temperature</span></li>
           <li><a class="dropdown-item unit-temp"  data-temp="celsius"   href="#">Celsius(C)</a></li>
@@ -50,12 +50,6 @@
           <li><a class="dropdown-item disabled" style="color: var(--color-text-med-light);" href="#">Wind Speed</a></li>
           <li><a class="dropdown-item unit-wind" data-wind="Km/h" href="#">Km/h</a></li>
           <li><a class="dropdown-item unit-wind" data-wind="mph" href="#">mph</a></li>
-          <li>
-            <hr class="dropdown-divider text-light">
-          </li>
-          <li><a class="dropdown-item disabled" style="color: var(--color-text-med-light);" href="#">Precipitation</a>
-          </li>
-          <li><a class="dropdown-item" href="#">Millimeters(mm)</a></li>
           <li>
             <hr class="dropdown-divider text-light">
           </li>
@@ -83,6 +77,9 @@
   <!-- main-content-area -->
   <div class="container no-result-section">
     <h5 class="text-center mt-5" style="color: var(--color-text-light);">No search results found!</h5>
+  </div>
+  <div class="container Loading-section">
+    <h5 class="text-center mt-5" style="color: var(--color-text-light);">Loading....</h5>
   </div>
   <div class="container my-5 weather-report-box">
     <div class="row">

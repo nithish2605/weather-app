@@ -253,11 +253,11 @@ input {
     color: var(--color-text-light);
 }
 
-.no-result-section{
+.no-result-section, .Loading-section{
     display: none;
 }
 
-.no-result-section.active{
+.no-result-section.active , .Loading-section.active{
     display: block;
 }
 
