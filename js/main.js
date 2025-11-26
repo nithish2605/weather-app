@@ -48,10 +48,17 @@ units_temp.forEach(unit => {
 
 units_wind.forEach(unit => {
     unit.addEventListener('click',()=>{
-    selectedWindUnit = unit.dataset.wind;
+    selectedWindUnit = unit.dataset.wind.toLowerCase().trim();
     getWeatherData(input_city);
     })
 });
+
+//clearing the input field when empty
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('.city-input').value = "";
+    input_city = "";
+});
+
 
 const weatherCodeMeaning = {
     0:  "icon-sunny",
@@ -139,7 +146,7 @@ function getCurrentData(data) {
     console.log("Current city weather report....");
 
     console.log("Temperature", data.current.temperature_2m, data.current_units.temperature_2m);
-    cur_temp.innerHTML = Math.round(data.current.temperature_2m) ;
+    cur_temp.innerHTML = Math.round(data.current.temperature_2m) + data.current_units.temperature_2m;
     let curr_date = data.current.time;
     const date = new Date(curr_date);
     const options = {

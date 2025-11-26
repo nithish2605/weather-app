@@ -238,7 +238,7 @@ input {
     color: var(--color-text-light);
     background-color: var(--color-panel-bg-med);
     border-radius: 0.5rem;
-    height: 2.7rem;
+    height: 2.8rem;
 }
 
 .daily-card-container {
@@ -282,3 +282,7 @@ input {
 .weather-hero{
     color: var(--color-text-light);
 }
+
+/* .unit-temp.show{
+    background-color: var(--color-panel-bg-light);
+} */
